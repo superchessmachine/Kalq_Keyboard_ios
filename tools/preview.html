@@ -1,0 +1,38 @@
+<!doctype html><html><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+html,body{margin:0;padding:0;background:#0f1319;height:100%}
+#ta{position:absolute;left:-9999px}
+/* Keyman's own .phone.ios dark-mode rules, forced on: standalone KeymanWeb
+   paints its desktop theme, but the iOS app paints these. From kmwosk.css. */
+.kmw-title-bar,.kmw-footer{display:none !important}
+.kmw-osk-frame{border:none !important;background:#0f1319 !important;border-radius:0 !important}
+.kmw-key-layer-group{background-color:#0f1319 !important}
+.kmw-key{border:none !important;border-bottom:solid 1px #8a8d90 !important;
+         box-shadow:none !important;border-radius:5px !important}
+.kmw-key.kmw-key-default{color:#fff !important;background-color:#3d3d3e !important}
+.kmw-key.kmw-key-shift,.kmw-key.kmw-key-special{color:#fff !important;background-color:#595c62 !important}
+</style>
+<script src="https://s.keyman.com/kmw/engine/18.0.254/keymanweb.js"></script>
+</head><body>
+<input id="ta">
+<script>
+keyman.init({attachType:'manual', ui:'none'}).then(function() {
+  keyman.attachToControl(document.getElementById('ta'));
+  return keyman.addKeyboards({id:'kalq', name:'KALQ', filename:'./kalq.js',
+                              languages:{id:'en', name:'English'}});
+}).then(function() {
+  return keyman.setActiveKeyboard('Keyboard_kalq','en');
+}).then(function() {
+  document.getElementById('ta').focus();
+  keyman.osk.show(true);
+  setTimeout(function() {
+    var f = document.querySelector('.kmw-osk-frame');
+    f.style.cssText += ';position:absolute;left:0px;top:0px;';
+    // KeymanWeb lays the OSK out at 240px here; zoom is a real layout scale, so
+    // the screenshot comes out sharp instead of an upscaled 240px crop.
+    f.style.zoom = 786 / f.getBoundingClientRect().width;
+  }, 300);
+});
+</script>
+</body></html>

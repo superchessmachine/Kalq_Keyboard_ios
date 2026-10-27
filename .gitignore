@@ -1,0 +1,4 @@
+*.kmx
+*.kmp
+*.js
+build/

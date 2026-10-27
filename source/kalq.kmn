@@ -1,0 +1,13 @@
+c keyboard generated from template at 2026-10-26
+c with name "KALQ"
+store(&NAME) 'KALQ'
+store(&COPYRIGHT) '© Yash Bhargava'
+store(&VERSION) '10.0'
+store(&KEYBOARDVERSION) '1.0'
+store(&TARGETS) 'mobile tablet'
+store(&LAYOUTFILE) 'kalq.keyman-touch-layout'
+store(&KMW_EMBEDCSS) 'kalq.css'
+
+begin Unicode > use(main)
+
+group(main) using keys
